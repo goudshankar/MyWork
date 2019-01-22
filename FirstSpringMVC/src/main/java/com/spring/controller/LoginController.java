@@ -27,6 +27,7 @@ import com.spring.service.UserService;
 public class LoginController
 {
   private static final Logger logger = Logger.getLogger(LoginController.class);
+  
   @Autowired
   private UserService userService;
   
