@@ -35,10 +35,10 @@
 	</bean>
 	<!-- <bean id="passwordEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" 
 		factory-method = "getInstance"></bean> -->
-<!-- 	<bean id="failureHandler"
-		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
-		p:useForward="true" />
-	<bean id="successHandler"
-		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler"
+	<!-- <bean id="failureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" 
+		p:useForward="true" /> <bean id="successHandler" class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler" 
 		p:defaultTargetUrl="/" /> -->
+	<bean id="trackMyBean" class="com.spring.aop.TrackOperation"></bean>
+	<bean
+		class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 </beans>
