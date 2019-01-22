@@ -17,7 +17,7 @@ public class TrackOperation
     @Around("abcPointcut()")  
     public Object myadvice(ProceedingJoinPoint pjp) throws Throwable   
     {  
-    	logger.info("Before calling actual method {} , Class name {}",pjp.getSignature().getName(),pjp.getTarget().getClass().getName());
+    	logger.info("Before calling actual method {} , Class name {} argument {}",pjp.getSignature().getName(),pjp.getTarget().getClass().getName(),pjp.getArgs());
     	long before=System.currentTimeMillis();
         Object obj=pjp.proceed();  
         
