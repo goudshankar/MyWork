@@ -65,7 +65,15 @@ public class LoginController
   @RequestMapping(value={"/admin"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String adminPage(ModelMap model)
   {
+	  String userName = getPrincipal();
+	  System.out.println("userName of adminPage method:"+userName);
+	  User user = this.userService.getUserDetails(userName);
+	  String email=user.getEmail();
+	  System.out.println("UserEmail:"+email);
+	  
+	  System.out.println("userName of adminPage method:"+user);
     model.addAttribute("user", getPrincipal());
+    
     if (logger.isInfoEnabled()) {
       logger.info("Returning admin.jsp page");
     }
