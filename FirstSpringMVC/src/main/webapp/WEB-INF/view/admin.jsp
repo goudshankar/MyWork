@@ -36,41 +36,21 @@
 
 			</thead>
 			<tbody>
-				<c:forEach items="${user}" var="usr">
+				<c:forEach items="${listdto}" var="usr">
 				<tr>
-					<td>${userName}</td>
-					<td><strong>${email}</strong></td>
-					<td><strong>${mobile}</strong></td>
+					<td>${usr.userName}</td>
+					<td><strong>${usr.email}</strong></td>
+					<td><strong>${usr.mobile}</strong></td>
+					<td><strong>${usr.role}</strong>
+					<td><button type="button" class="btn btn-primary">Update</button></td>
 					<td><select class="form-control defaultpicker">
 							<option>Admin</option>
 							<option>User</option>
 					</select></td>
-					<td><button type="button" class="btn btn-primary">Update</button></td>
 				</tr>
 				</c:forEach>
-				<tr>
-					<td>${userName}</td>
-					<td>${email }</td>
-					<td>${mobile}</td>
-					<td><select class="form-control defaultpicker">
-							<option>Admin</option>
-							<option>User</option>
-					</select></td>
-					<td><button type="button" class="btn btn-primary">Update</button></td>
-				</tr>
-				<tr>
-					<td>${userName}</td>
-					<td>${userName}</td>
-					<td>${mobile}</td>
-					<td><select class="form-control defaultpicker">
-							<option>Admin</option>
-							<option>User</option>
-					</select></td>
-					<td><button type="button" class="btn btn-primary">Update</button></td>
-				</tr>
-			</tbody>
+				</tbody>
 		</table>
 	</div>
-
 </body>
 </html>

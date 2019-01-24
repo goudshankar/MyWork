@@ -2,12 +2,16 @@ package com.spring.dao;
 
 import com.spring.model.SkillsVo;
 import com.spring.model.User;
+import com.spring.model.User_Roles;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
+
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -49,7 +53,7 @@ public class UserDaoImpl
     return returnObject;
   }
   
-  public User getUserDetails(String userName)
+  public User getUserDetailsByName(String userName)
   {
     String query = "select * from user where username=?";
     PreparedStatement ps = null;
@@ -80,4 +84,17 @@ public class UserDaoImpl
     }
     return user;
   }
+
+@Override
+public List<User_Roles> getRolesDetails() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public List<User> getUserDetails() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }

@@ -75,28 +75,30 @@
 			<!--Select options  -->
 			<div class="form-group">
 				<div class="dropdown">
-				<!--Drop down -->
+					<!--Drop down -->
 					<spring:message code="lbl.skills" text="Skills:" />
-            	    	<form:select path="skills" items="${test.skills}" itemValue="id" itemLabel="name">
-            	    	 	</form:select>
-            	    		<form:errors path="skills" cssClass="alert-danger" />
-                </div>
-			</div>	
-							
-					<%-- <form:select path="skills" class="required">
+					<form:select path="skills" items="${test.skills}" itemValue="id"
+						itemLabel="name">
+					</form:select>
+					<form:errors path="skills" cssClass="alert-danger" />
+				</div>
+			</div>
+
+			<%-- <form:select path="skills" class="required">
 						<form:option  value="">Select skills</form:option>
 						<form:options items="${skills}" /> --%>
-			
+
 			<!--Date Picker  -->
 			<div class="form-group">
 				<!-- Date input -->
-				<spring:message code="lbl.dob" text="Date of Birth:&nbsp;&nbsp;pattern(mm/dd/yyyy)" />
-				
+				<spring:message code="lbl.dob"
+					text="Date of Birth:&nbsp;&nbsp;pattern(mm/dd/yyyy)" />
+
 				<label class="control-label" for="date"></label>
 				<form:input class="form-control" id="date" name="date" path="dob"
 					placeholder="Date Of Birth in MM/DD/YYY" type="date" />
-					<form:errors path="dob" cssClass="alert-danger" />
-				
+				<form:errors path="dob" cssClass="alert-danger" />
+
 			</div>
 			<div class="form-group">
 				<button class="btn btn-lg btn-primary btn-block Default input"

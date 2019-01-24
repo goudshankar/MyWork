@@ -29,8 +29,7 @@
 	<context:property-placeholder
 		location="classpath:application.properties" />
 
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
 	</bean>
 	<!-- <bean id="passwordEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" 

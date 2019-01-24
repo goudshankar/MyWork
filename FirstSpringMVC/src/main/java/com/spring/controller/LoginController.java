@@ -1,5 +1,7 @@
 package com.spring.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -19,8 +21,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring.dto.UserDetailsDTO;
 import com.spring.model.LoginForm;
 import com.spring.model.User;
+import com.spring.model.User_Roles;
 import com.spring.service.UserService;
 
 @Controller
@@ -40,13 +44,9 @@ public class LoginController
   @RequestMapping(value={"/login"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String login(Model model)
   {
-    if (logger.isDebugEnabled()) {
-      logger.debug("getWelcome is executed!");
-    }
+    
     model.addAttribute("loginForm", new LoginForm());
-    if (logger.isInfoEnabled()) {
-      logger.info("Returning loginpage.jsp page");
-    }
+    
     return "loginpage";
   }
   
@@ -54,11 +54,9 @@ public class LoginController
   public String loggedIn(Model model, @Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult result, HttpServletRequest request)
   {
     String userName = getPrincipal();
-    User user = this.userService.getUserDetails(userName);
+    User user = this.userService.getUserDetailsByName(userName);
     model.addAttribute("userDetails", user);
-    if (logger.isInfoEnabled()) {
-      logger.info("Returning welcome.jsp page");
-    }
+    
     return "welcome";
   }
   
@@ -67,17 +65,10 @@ public class LoginController
   {
 	  String userName = getPrincipal();
 	  System.out.println("userName of adminPage method:"+userName);
-	  User user = this.userService.getUserDetails(userName);
-	  String email=user.getEmail();
-	  System.out.println("UserEmail:"+email);
-	  
-	  System.out.println("userName of adminPage method:"+user);
-    model.addAttribute("user", getPrincipal());
-    
-    if (logger.isInfoEnabled()) {
-      logger.info("Returning admin.jsp page");
-    }
-    return "admin";
+	  List<UserDetailsDTO> userDetailsDTO = this.userService.getUserRolesDetails();
+	  model.addAttribute("listdto", userDetailsDTO);
+	  model.addAttribute("user", getPrincipal());
+      return "admin";
   }
   
   @RequestMapping(value={"/logout"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
@@ -87,9 +78,7 @@ public class LoginController
     if (auth != null) {
       new SecurityContextLogoutHandler().logout(request, response, auth);
     }
-    if (logger.isInfoEnabled()) {
-      logger.info("Returning login.jsp page");
-    }
+    
     return "redirect:/login";
   }
   
@@ -97,9 +86,7 @@ public class LoginController
   public String accessDeniedPage(ModelMap model)
   {
     model.addAttribute("user", getPrincipal());
-    if (logger.isInfoEnabled()) {
-      logger.info("Returning accessDenied.jsp page");
-    }
+    
     return "accessDenied";
   }
   
@@ -112,9 +99,7 @@ public class LoginController
     } else {
       userName = principal.toString();
     }
-    if (logger.isInfoEnabled()) {
-      logger.info("Returning userName");
-    }
+    
     return userName;
   }
 }
