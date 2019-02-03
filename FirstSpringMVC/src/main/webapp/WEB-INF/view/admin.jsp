@@ -20,7 +20,7 @@
 
 	<div class="container">
 		<h2>
-			Dear <strong>${user}</strong>, Welcome to Admin Page. <a href="<c:url value="/logout" />">Logout</a>
+			Dear <strong>${user}</strong>, Welcome to Admin Page.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/logout" />"></center>Logout</a>
 		</h2>
 		<br>
 		<br>

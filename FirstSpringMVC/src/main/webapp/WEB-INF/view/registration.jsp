@@ -1,10 +1,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
+Current Locale : ${pageContext.response.locale}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,39 +35,44 @@
 	<div class="container">
 		<form:form method="POST" modelAttribute="userForm" action="./register"
 			class="form-signin">
-			<h2 class="form-signin-heading">Create your account</h2>
-
+			<h2 class="form-signin-heading"><spring:message code="label.title" text="default text" /></h2>
+			<center>
+				<a href="?lang=en">english</a> &nbsp;&nbsp;&nbsp; 
+				<a href="?lang=hi">Hindhi</a> &nbsp;&nbsp;&nbsp; 
+				<a href="?lang=te">Telugu</a> &nbsp;&nbsp;&nbsp; 
+				<a href="?lang=tm">Tamil</a> &nbsp;&nbsp;&nbsp;
+			</center><br>
 			<div class="form-group" class="col-lg-10 col-sm-12">
-				<form:input type="text" path="userName"
-					class="form-control input-sm" placeholder="Username"
-					autofocus="true"></form:input>
+				<spring:message code="label.userName" text="default text" /><form:input type="text" path="userName"
+					class="form-control input-sm" autofocus="true"></form:input>
 				<form:errors path="userName" cssClass="alert-danger" />
 			</div>
 			<div class="form-group">
+				<spring:message code="label.password" text="default text" />
 				<form:input type="password" path="password"
-					class="form-control input-sm" placeholder="Password"></form:input>
+					class="form-control input-sm" ></form:input>
 				<form:errors path="password" cssClass="alert-danger" />
 			</div>
 			<div class="form-group">
-				<form:input type="password" path="confirmPassword"
-					class="form-control input-sm" placeholder="Confirm your password"></form:input>
+				<spring:message code="label.confirmPassword" text="default text" /><form:input type="password" path="confirmPassword"
+					class="form-control input-sm"></form:input>
 				<form:errors path="confirmPassword" cssClass="alert-danger" />
 			</div>
 			<div class="form-group">
-				<form:input type="email" path="email" class="form-control input-sm"
-					placeholder="Enter email" />
+				<spring:message code="label.email" text="default text" /><form:input type="email" path="email" class="form-control input-sm"/>
 				<form:errors path="email" cssClass="alert-danger" />
 			</div>
 
 			<div class="form-group">
-				<form:input type="text" path="mobile" class="form-control input-sm"
-					placeholder="Enter mobile number" />
+				<spring:message code="label.mobile" text="default text" /><form:input type="text" path="mobile" class="form-control input-sm"
+					 />
 				<form:errors path="mobile" cssClass="alert-danger" />
 			</div>
 			<div class="form-group">
-				<spring:message code="lbl.gender" text="Gender:" />
+				<spring:message code="label.gender" text="default text" />
 				<form:radiobutton path="gender" value="Male" />
 				Male
+				
 				<form:radiobutton path="gender" value="Female" />
 				Female
 				<form:errors path="gender" cssClass="alert-danger" />
@@ -76,7 +81,7 @@
 			<div class="form-group">
 				<div class="dropdown">
 					<!--Drop down -->
-					<spring:message code="lbl.skills" text="Skills:" />
+					<spring:message code="label.skills" text="default text" />
 					<form:select path="skills" items="${test.skills}" itemValue="id"
 						itemLabel="name">
 					</form:select>
@@ -91,12 +96,10 @@
 			<!--Date Picker  -->
 			<div class="form-group">
 				<!-- Date input -->
-				<spring:message code="lbl.dob"
-					text="Date of Birth:&nbsp;&nbsp;pattern(mm/dd/yyyy)" />
-
 				<label class="control-label" for="date"></label>
+				<spring:message code="label.dob" text="default text" />
 				<form:input class="form-control" id="date" name="date" path="dob"
-					placeholder="Date Of Birth in MM/DD/YYY" type="date" />
+					 type="date" />
 				<form:errors path="dob" cssClass="alert-danger" />
 
 			</div>
