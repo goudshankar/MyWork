@@ -71,7 +71,8 @@ public class UserDaoImplJDBCTemplate
 				user.setEmail(rs.getString(5));
 				user.setMobile(rs.getString(6));
 				user.setGender(rs.getString(7));
-				user.setDob(rs.getDate(8));
+				//user.setDate(8, (java.sql.Date)rs.getDob());
+				user.setDob((java.sql.Date)rs.getDate(8));
 				//usr.setSkills((((User) rs).getSkills()));
 				return user;
 			}

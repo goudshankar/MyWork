@@ -16,9 +16,9 @@
 			<div class="login-container">
 				<div class="login-card">
 				<a href="${adminUrl}">Admin URL</a>
+					
 					<div class="login-form">
 						
-	
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="username">User Name</label>
 								<input type="text" class="form-control" id="userName" value="${userDetails.getUserName()}" name="userName" placeholder="Enter Username" required>
