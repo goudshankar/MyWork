@@ -24,7 +24,6 @@ import net.sf.json.JSONObject;
 public class RestControllerDemo {
 	@Autowired
 	private UserService userService;
-
 	//@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/rest/api/admin/updaterole", method = RequestMethod.POST)
 	public JSONObject getData(@RequestBody JSONObject input)
@@ -37,7 +36,6 @@ public class RestControllerDemo {
 		 * JSONObject.fromObject(userService.getRolesDetails());
 		 */
 		return input;
-
 	}
 
 	@Bean

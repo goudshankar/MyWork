@@ -33,6 +33,9 @@ public class Controller {
 
 				System.out.println("Nullpointer Exception Handled");
 			}
+			if(e.getMessage().equals("0003")) {
+				System.out.println("UserNotFound Exception Handled");
+			}
 
 		}
 	}

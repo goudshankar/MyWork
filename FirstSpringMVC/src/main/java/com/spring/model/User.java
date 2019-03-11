@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
-public class User
+public class User 
   implements Serializable
 {
   private static final long serialVersionUID = 2808627285393582721L;

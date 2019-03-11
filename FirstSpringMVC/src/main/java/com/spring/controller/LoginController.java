@@ -27,19 +27,25 @@ import com.spring.dto.UserDetailsDTO;
 import com.spring.model.LoginForm;
 import com.spring.model.User;
 import com.spring.service.UserService;
+/*
+ * In LoginController we have taken Login(-),
+ * 
+ * */
 
-@Controller
+
+@Controller 
 public class LoginController {
 	private static final Logger logger = Logger.getLogger(LoginController.class);
 
 	@Autowired
 	private UserService userService;
-
+	
+	//propertyEditors
 	@Bean
 	public static NoOpPasswordEncoder passwordEncoder() {
 		return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
 	}
-
+	//Login page
 	@RequestMapping(value = { "/login" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
 	public String login(Model model, HttpServletRequest request, HttpServletResponse response) {
 		if (request.getParameter("err") != null) {
@@ -50,7 +56,8 @@ public class LoginController {
 
 		return "loginpage";
 	}
-
+	
+	//welcome page
 	@RequestMapping(value = { "/", "/welcome**" }, method = {
 			org.springframework.web.bind.annotation.RequestMethod.GET })
 	public String loggedIn(Model model, @Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult result,
@@ -61,7 +68,7 @@ public class LoginController {
 
 		return "welcome";
 	}
-
+	//admin page
 	@RequestMapping(value = { "/admin" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
 	public String adminPage(ModelMap model) {
 		String userName = getPrincipal();
@@ -71,7 +78,7 @@ public class LoginController {
 		model.addAttribute("user", getPrincipal());
 		return "admin";
 	}
-
+	//Logout page
 	@RequestMapping(value = { "/logout" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -81,7 +88,7 @@ public class LoginController {
 
 		return "redirect:/login";
 	}
-
+	//Access Denied page
 	@RequestMapping(value = { "/accessDenied" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
 	public String accessDeniedPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
@@ -100,7 +107,7 @@ public class LoginController {
 
 		return userName;
 	}
-
+	//Exception Handling
 	@ExceptionHandler(org.apache.commons.dbcp.SQLNestedException.class)
 	public ModelAndView handleUserNotFoundException(HttpServletRequest request, Exception exception) {
 

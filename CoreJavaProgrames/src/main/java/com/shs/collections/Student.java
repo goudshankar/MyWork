@@ -13,21 +13,15 @@ public class Student implements Comparable<Student> {
 	@Override
 	public int compareTo(Student s1) {
 		// TODO Auto-generated method stub
-	/*	if(age>s1.age) {
+		if(rollno==s1.rollno) {
+			return 0;
+			
+		}else if(rollno>s1.rollno) {
 			return 1;
 		}
-		else if(age<s1.age) {
+		else {
 			return -1;
 		}
-		return 0;*/
-		//sort based on name
-		if(rollno>s1.rollno) {
-			return 1;
-		}
-		else if(rollno<s1.rollno) {
-			return -1;
-		}
-		return 0;
 	}
 	
 }

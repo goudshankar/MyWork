@@ -23,7 +23,7 @@ public class Dao {
 			
 			throw new AppException("0002");
 		}
-		/*catch(InvalidConnectionName icn) {
+		/*catch(UserNotFoundException unfe) {
 			throw new AppException("2E");
 		}*/
 		

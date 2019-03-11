@@ -94,7 +94,7 @@ Current Locale : ${pageContext.response.locale}
 						<form:options items="${skills}" /> --%>
 
 			<!--Date Picker  -->
-			<div class="form-group">
+			<%-- <div class="form-group">
 				<!-- Date input -->
 				<label class="control-label" for="date"></label>
 				<spring:message code="label.dob" text="default text" />
@@ -102,7 +102,7 @@ Current Locale : ${pageContext.response.locale}
 					 type="date" />
 				<form:errors path="dob" cssClass="alert-danger" />
 
-			</div>
+			</div> --%>
 			<div class="form-group">
 				<button class="btn btn-lg btn-primary btn-block Default input"
 					type="submit">Submit</button>

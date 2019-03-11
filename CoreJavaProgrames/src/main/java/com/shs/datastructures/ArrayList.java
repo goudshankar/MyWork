@@ -1,5 +1,8 @@
 package com.shs.datastructures;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ArrayList {
 	private static final int SIZE_FACTOR=5;
 	private Object data[];
@@ -73,11 +76,23 @@ public class ArrayList {
         mal.add("8");
         mal.add("9");
         mal.add("10");
-
+        mal.add("11");
+       
+        //get the value from 6th index value
+        
+        System.out.println(mal.get(6));
         // remove by index
         mal.remove(5);
 
         System.out.println(mal.get(7));
+        
+        Set<String> set=new HashSet<String>();
+        set.add("shankar");
+        set.add("");
+        set.add("goud");
+        set.add("");
+        set.add("edgi");
+        System.out.println(set);
     }
 
 		

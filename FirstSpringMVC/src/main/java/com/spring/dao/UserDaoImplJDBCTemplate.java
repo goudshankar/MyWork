@@ -72,7 +72,7 @@ public class UserDaoImplJDBCTemplate
 				user.setMobile(rs.getString(6));
 				user.setGender(rs.getString(7));
 				//user.setDate(8, (java.sql.Date)rs.getDob());
-				user.setDob((java.sql.Date)rs.getDate(8));
+				//user.setDob((java.sql.Date)rs.getDate(8));
 				//usr.setSkills((((User) rs).getSkills()));
 				return user;
 			}

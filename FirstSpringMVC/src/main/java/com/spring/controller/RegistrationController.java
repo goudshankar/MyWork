@@ -41,7 +41,7 @@ public class RegistrationController
   
   @InitBinder
   public void initBinder(WebDataBinder binder)
-  {
+  {    
     binder.registerCustomEditor(SkillsVo.class, new SkillsEditor());
   }
   
